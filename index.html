@@ -3,9 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Peter Gichuki - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    echo "Hello, World!"
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">PG</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#blogs">Blogs</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">I am Peter Gichuki</h1>
+                <div class="animated-text">
+                    <span class="text first-text">Full Stack Developer</span>
+                    <span class="text sec-text">Web Designer</span>
+                    <span class="text third-text">IT Support Specialist</span>
+                    <span class="text fourth-text">Graphic Designer</span>
+                </div>
+                <button class="cta-button">Contact Me</button>
+                <div class="social-links">
+                    <a href="https://x.com/sleemogichuki"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/peter-gichuki-w"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/Peter-Gichuki"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://dev.to/netcheker"><i class="fa-brands fa-dev"></i></i></a>
+                    <a href="https://www.instagram.com/waithaka._g/profilecard/?igsh=MTVoZzk3a2RxeWVoNA=="><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/profile.jpg" alt="Peter Gichuki">
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
