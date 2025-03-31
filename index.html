@@ -1,94 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Meta tags for character set, viewport, and SEO -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Peter Gichuki - Full Stack Developer and IT Specialist">
-    <meta property="og:image" content="images/profile.jpg">
-    
-    <!-- Page title -->
     <title>Peter Gichuki - Portfolio</title>
-    
-    <!-- CSS stylesheets -->
     <link rel="stylesheet" href="styles.css">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <!-- Main navigation -->
-    <nav class="navbar" aria-label="Main navigation">
+    <!-- Navigation -->
+    <nav class="navbar">
         <div class="nav-container">
-            <!-- Navigation links -->
             <ul class="nav-links">
-                <li><a href="#home" aria-current="page">Home</a></li>
+                <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#blogs">Blogs</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            
-            <!-- Mobile menu hamburger icon -->
-            <div class="hamburger" aria-label="Mobile menu">
+            <div class="hamburger">
                 <div class="bar"></div>
                 <div class="bar"></div>
                 <div class="bar"></div>
             </div>
         </div>
-        <!-- Mobile menu overlay -->
         <div class="nav-overlay"></div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero/intro Section -->
     <section class="hero" id="home">
         <div class="hero-container">
-            <!-- Left content column -->
             <div class="hero-content">
                 <h1 class="hero-title">I'm Peter</h1>
-                
-                <!-- Animated text cycling -->
                 <div class="animated-text">
-                    <span class="text first-text">Full Stack Web Developer</span>
-                    <span class="text sec-text">IT Support🔧</span>
-                    <span class="text third-text">IoT & Connectivity</span>
+                    <span class="text first-text">Full Stack Web Developer💻</span>
+                    <span class="text sec-text">IT Support🔧</span> 
+                    <span class="text third-text">IoT, Security & Connectivity🔐</span>
                     <span class="text fourth-text">Graphic&Web Designer🖌️</span>
                 </div>
-                
-                <!-- Call to Action button -->
                 <button class="cta-button">Contact Me</button>
-                
-                <!-- Social media links -->
                 <div class="social-links">
-                    <a href="https://x.com/sleemogichuki" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="https://www.linkedin.com/in/peter-gichuki-w" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://github.com/Peter-Gichuki" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://dev.to/netcheker" aria-label="Dev.to"><i class="fa-brands fa-dev"></i></a>
-                    <a href="https://www.instagram.com/waithaka._g/profilecard/?igsh=MTVoZzk3a2RxeWVoNA==" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://x.com/sleemogichuki"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/peter-gichuki-w"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/Peter-Gichuki"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://dev.to/netcheker"><i class="fa-brands fa-dev"></i></a>
+                    <a href="https://www.instagram.com/waithaka._g/profilecard/?igsh=MTVoZzk3a2RxeWVoNA=="><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
-            
-            <!-- Right image column -->
             <div class="hero-image">
-                <img src="images/profile.jpg" alt="Peter Gichuki portrait" loading="lazy">
+                <img src="images/profile.jpg" alt="Peter Gichuki">
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About section -->
     <section class="about" id="about">
         <div class="about-container">
-            <!-- About section image -->
             <div class="about-image">
-                <img src="images/about-image.jpg" alt="Peter Gichuki working" loading="lazy">
+                <img src="images/about-image.jpg" alt="Peter Gichuki">
             </div>
-            
-            <!-- About section content -->
             <div class="about-content">
                 <h2 class="section-title">About</h2>
                 <p class="about-text">
                     Hey, my name is Peter Gichuki and I'm passionate about technology, web development, and full-stack development.<br>
                     I thrive on creating innovative software solutions and enjoy engaging in IT support management.<br>
-                    I find artificial intelligence fascinating—it's revolutionizing industries by enhancing decision-making, automating tasks, and sparking creativity in ways we never imagined.<br> 
+                    I find AI fascinating—it’s revolutionizing industries by enhancing decision-making, automating tasks, and sparking creativity in ways we never imagined.<br> 
                     Let's connect and explore the endless possibilities of the tech world!
                 </p>
                 <button class="cta-button">Let's Connect</button>
@@ -96,30 +72,30 @@
         </div>
     </section>
 
-    <!-- JavaScript functionality -->
     <script>
-        // DOM elements selection
+        // Mobile menu functionality
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
         const navOverlay = document.querySelector('.nav-overlay');
         const navItems = document.querySelectorAll('.nav-links a');
 
-        // Toggle mobile menu function
+        // Toggle menu
         function toggleMenu() {
             navLinks.classList.toggle('active');
             hamburger.classList.toggle('active');
             navOverlay.classList.toggle('active');
-            document.body.classList.toggle('no-scroll');
         }
 
         // Event listeners
         hamburger.addEventListener('click', toggleMenu);
         navOverlay.addEventListener('click', toggleMenu);
         
-        // Close menu on mobile link click
+        // Close menu on link click (mobile only)
         navItems.forEach(item => {
             item.addEventListener('click', () => {
-                if (window.innerWidth <= 768) toggleMenu();
+                if (window.innerWidth <= 768) {
+                    toggleMenu();
+                }
             });
         });
 
@@ -128,16 +104,6 @@
             if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
                 toggleMenu();
             }
-        });
-
-        // Smooth scroll implementation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', (e) => {
-                e.preventDefault();
-                document.querySelector(anchor.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
         });
     </script>
 </body>
