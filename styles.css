@@ -95,29 +95,48 @@ body {
 }
 
 .animated-text {
-    height: 120px;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: auto;
     margin-bottom: 2.5rem;
+    
 }
 
 .text {
     font-size: 2rem;
     font-weight: 600;
-    position: relative;
     color: var(--primary-color);
     opacity: 0;
-    animation: slide 8s infinite;
+    transform: translate(20px);
+    animation: textAppearDisappear 10s infinite;
+    position: relative;
+    height: 2.5rem;
 }
 
-@keyframes slide {
-    0%, 30% { opacity: 0; transform: translateY(50px); }
-    5%, 25% { opacity: 1; transform: translateY(0); }
-}
 
+@keyframes textAppearDisappear {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    80% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
 .first-text { animation-delay: 0s; }
-.sec-text { animation-delay: 2s; }
-.third-text { animation-delay: 4s; }
-.fourth-text { animation-delay: 6s; }
+.sec-text { animation-delay: 2.5s; }
+.third-text { animation-delay: 5s; }
+.fourth-text { animation-delay: 7.5s; }
 
 .cta-button {
     background-color: var(--primary-color);

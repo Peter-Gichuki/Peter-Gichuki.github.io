@@ -405,3 +405,21 @@ main {
 </section>
 </body>
 </html>
+
+.animated-text {
+    height: 170px;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+.text {
+    font-size: 2rem;
+    font-weight: 600;
+    position: relative;
+    color: var(--primary-color);
+    transform: translate(20px);
+    display: block;
+    opacity: 0;
+    animation: slide 8s infinite;
+}
