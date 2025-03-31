@@ -6,13 +6,11 @@
     <title>Peter Gichuki - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">PG</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -26,6 +24,7 @@
                 <div class="bar"></div>
             </div>
         </div>
+        <div class="nav-overlay"></div>
     </nav>
 
     <!-- Hero/intro Section -->
@@ -35,16 +34,16 @@
                 <h1 class="hero-title">I'm Peter</h1>
                 <div class="animated-text">
                     <span class="text first-text">Full Stack Developer</span>
-                    <span class="text sec-text">Web Designer</span><br>
-                    <span class="text third-text">IT Support Specialist</span><br>
-                    <span class="text fourth-text">Graphic Designer</span>
+                    <span class="text sec-text">Web Designer</span>
+                    <span class="text third-text">IT Support🔧</span>
+                    <span class="text fourth-text">Graphic Designer🖌️</span>
                 </div>
                 <button class="cta-button">Contact Me</button>
                 <div class="social-links">
                     <a href="https://x.com/sleemogichuki"><i class="fa-brands fa-x-twitter"></i></a>
                     <a href="https://www.linkedin.com/in/peter-gichuki-w"><i class="fa-brands fa-linkedin"></i></a>
                     <a href="https://github.com/Peter-Gichuki"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://dev.to/netcheker"><i class="fa-brands fa-dev"></i></i></a>
+                    <a href="https://dev.to/netcheker"><i class="fa-brands fa-dev"></i></a>
                     <a href="https://www.instagram.com/waithaka._g/profilecard/?igsh=MTVoZzk3a2RxeWVoNA=="><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
@@ -54,34 +53,59 @@
         </div>
     </section>
 
+    <!-- About section -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="images/about-image.jpg" alt="Peter Gichuki">
+            </div>
+            <div class="about-content">
+                <h2 class="section-title">About Me</h2>
+                <p class="about-text">
+                    Hey, my name is Peter Gichuki and I am a current graduate at Zetech University.
+                    I'm passionate about technology, web development, and full-stack development.<br>
+                    I thrive on creating innovative software solutions and enjoy engaging in IT support management.<br>
+                    I find artificial intelligence fascinating—it’s revolutionizing industries by enhancing decision-making, automating tasks, and sparking creativity in ways we never imagined.<br> 
+                    Let's connect and explore the endless possibilities of the tech world!
+                </p>
+                <button class="cta-button">Let's Connect</button>
+            </div>
+        </div>
+    </section>
+
     <script>
-        // Mobile menu toggle
+        // Mobile menu functionality
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
+        const navOverlay = document.querySelector('.nav-overlay');
+        const navItems = document.querySelectorAll('.nav-links a');
 
-        hamburger.addEventListener('click', () => {
+        // Toggle menu
+        function toggleMenu() {
             navLinks.classList.toggle('active');
             hamburger.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+        }
+
+        // Event listeners
+        hamburger.addEventListener('click', toggleMenu);
+        navOverlay.addEventListener('click', toggleMenu);
+        
+        // Close menu on link click (mobile only)
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // Close menu on window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+                toggleMenu();
+            }
         });
     </script>
-    <!-- About section -->
-<section class="about" id="about">
-    <div class="about-container">
-        <div class="about-image">
-            <img src="images/about-image.jpg" alt="Peter Gichuki">
-        </div>
-        <div class="about-content">
-            <h2 class="section-title">About Me</h2>
-            <p class="about-text">
-                Hey, my name is Peter Gichuki and I am a current graduate at Zetech University.
-                I'm passionate about technology, web development, and full-stack development.<br>
-                I thrive on creating innovative software solutions and enjoy engaging in IT support management.<br>
-                I find artificial intelligence fascinating—it’s revolutionizing industries by enhancing decision-making, automating tasks, and sparking creativity in ways we never imagined.<br> 
-                Let's connect and explore the endless possibilities of the tech world!
-            </p>
-            <button class="cta-button">Let's Connect</button>
-        </div>
-    </div>
-</section>
 </body>
 </html>

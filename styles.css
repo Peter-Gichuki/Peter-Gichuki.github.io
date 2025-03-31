@@ -18,7 +18,7 @@ body {
     color: var(--text-light);
 }
 
-/* Navigation Styles */
+/* Updated Navigation Styles */
 .navbar {
     background-color: var(--dark-bg);
     height: var(--nav-height);
@@ -33,23 +33,16 @@ body {
     margin: 0 auto;
     padding: 0 2rem;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center; /* Changed to center */
     align-items: center;
     height: 100%;
-    gap: 4rem;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
 }
 
 .nav-links {
     display: flex;
-    gap: 1.5rem;
+    gap: 2.5rem;
     list-style: none;
-    margin-left: auto;
+    transform: translateX(-5%); /* Push links left from center */
     white-space: nowrap;
 }
 
@@ -100,7 +93,6 @@ body {
     font-size: 3.5rem;
     margin-bottom: 1.5rem;
 }
-
 
 .animated-text {
     height: 120px;
@@ -248,6 +240,10 @@ body {
         display: block;
     }
 
+    .nav-container {
+        justify-content: flex-end;
+    }
+
     .nav-links {
         position: fixed;
         top: var(--nav-height);
@@ -261,6 +257,7 @@ body {
         transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
         z-index: 1001;
+        transform: none;
     }
 
     .nav-links.active {
@@ -290,10 +287,6 @@ body {
     .section-title::after {
         left: 50%;
         transform: translateX(-50%);
-    }
-
-    .about-text {
-        text-align: left;
     }
 }
 
