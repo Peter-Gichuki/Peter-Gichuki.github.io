@@ -1,11 +1,14 @@
-/* styles.css */
-:root {
+
+   :root {
     --dark-bg: #1a1a1a;
     --primary-color: #00ff88;
     --text-light: #ffffff;
     --nav-height: 70px;
 }
 
+/* ================
+   Base Styles 
+   ================ */
 * {
     margin: 0;
     padding: 0;
@@ -16,9 +19,12 @@
 body {
     background-color: var(--dark-bg);
     color: var(--text-light);
+    line-height: 1.6;
 }
 
-/* Updated Navigation Styles */
+/* ================
+   Navigation Styles 
+   ================ */
 .navbar {
     background-color: var(--dark-bg);
     height: var(--nav-height);
@@ -31,37 +37,45 @@ body {
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 3rem;
     display: flex;
-    justify-content: center; /* Changed to center */
+    justify-content: space-between;
     align-items: center;
     height: 100%;
 }
 
 .nav-links {
     display: flex;
-    gap: 2.5rem;
+    gap: 2rem;
     list-style: none;
-    transform: translateX(-5%); /* Push links left from center */
+    margin: 0 auto;
+    padding-right: 4rem;
     white-space: nowrap;
 }
 
+/* Navigation link hover effects */
 .nav-links a {
     color: var(--text-light);
     text-decoration: none;
     transition: color 0.3s ease;
+    font-weight: 500;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {
     color: var(--primary-color);
 }
 
+/* Mobile menu hamburger icon */
 .hamburger {
     display: none;
     cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0.5rem;
 }
 
-.bar {
+.hamburger .bar {
     width: 25px;
     height: 3px;
     background-color: var(--text-light);
@@ -69,10 +83,14 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Hero Section */
+/* ================
+   Hero Section 
+   ================ */
 .hero {
     min-height: 100vh;
     padding-top: var(--nav-height);
+    display: flex;
+    align-items: center;
 }
 
 .hero-container {
@@ -82,62 +100,42 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    gap: 2rem;
+    gap: 3rem;
 }
 
-.hero-content {
-    max-width: 600px;
-}
-
-.hero-title {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
-}
-
+/* Animated text cycling effect */
 .animated-text {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     height: auto;
+    position: relative;
     margin-bottom: 2.5rem;
-    
 }
 
 .text {
-    font-size: 2rem;
+    position: relative;
+    left: 0;
+    opacity: 0;
+    font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 600;
     color: var(--primary-color);
-    opacity: 0;
-    transform: translate(20px);
-    animation: textAppearDisappear 10s infinite;
-    position: relative;
-    height: 2.5rem;
+    animation: textCycle 16s infinite;
+    transform: translateY(20px);
 }
 
-
-@keyframes textAppearDisappear {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    10% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    80% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
+@keyframes textCycle {
+    0%, 100% { opacity: 0; transform: translateY(20px) }
+    5%, 20% { opacity: 1; transform: translateY(0) }
 }
+
+/* Animation delays for each text element */
 .first-text { animation-delay: 0s; }
-.sec-text { animation-delay: 2.5s; }
-.third-text { animation-delay: 5s; }
-.fourth-text { animation-delay: 7.5s; }
+.sec-text { animation-delay: 4s; }
+.third-text { animation-delay: 8s; }
+.fourth-text { animation-delay: 12s; }
 
+/* Call to Action button styling */
 .cta-button {
     background-color: var(--primary-color);
     color: var(--dark-bg);
@@ -147,14 +145,16 @@ body {
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
     margin: 1.5rem 0;
 }
 
 .cta-button:hover {
     transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
 }
 
+/* Social media links styling */
 .social-links {
     display: flex;
     gap: 1.5rem;
@@ -168,16 +168,23 @@ body {
 
 .social-links a:hover {
     color: var(--primary-color);
+    transform: translateY(-3px);
 }
 
+/* Hero image styling */
 .hero-image img {
     width: 100%;
     max-width: 500px;
+    height: auto;
+    aspect-ratio: 1/1;
     border-radius: 15px;
     box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
+    object-fit: cover;
 }
 
-/* About Section */
+/* ================
+   About Section 
+   ================ */
 .about {
     background-color: #ffffff;
     padding: 6rem 2rem;
@@ -193,9 +200,10 @@ body {
     align-items: center;
 }
 
+/* Section title underline effect */
 .section-title {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 2rem;
     position: relative;
     display: inline-block;
 }
@@ -211,17 +219,14 @@ body {
     border-radius: 3px;
 }
 
-.about-image {
-    max-width: 500px;
-    width: 100%;
-    margin: 0 auto;
-}
-
+/* About section image styling */
 .about-image img {
     width: 100%;
     height: auto;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    aspect-ratio: 1/1;
+    object-fit: cover;
 }
 
 .about-text {
@@ -231,7 +236,9 @@ body {
     color: #4a4a4a;
 }
 
-/* Overlay Styles */
+/* ================
+   Mobile Overlay 
+   ================ */
 .nav-overlay {
     position: fixed;
     top: var(--nav-height);
@@ -254,20 +261,18 @@ body {
     pointer-events: all;
 }
 
-/* Responsive Design */
+/* ================
+   Responsive Design 
+   ================ */
 @media (max-width: 768px) {
     .hamburger {
         display: block;
     }
 
-    .nav-container {
-        justify-content: flex-end;
-    }
-
     .nav-links {
         position: fixed;
         top: var(--nav-height);
-        right: -70%;
+        left: -70%;
         width: 70%;
         height: calc(100vh - var(--nav-height));
         background-color: var(--dark-bg);
@@ -277,7 +282,7 @@ body {
         transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
         z-index: 1001;
-        transform: none;
+        gap: 1.5rem;
     }
 
     .nav-links.active {
@@ -286,22 +291,27 @@ body {
 
     .hero-container {
         grid-template-columns: 1fr;
+        grid-template-areas: 
+            "image"
+            "content";
         text-align: center;
+        gap: 0;
+    }
+    .hero-content {
+        grid-area: content;
+        order: 2;
     }
 
     .hero-image {
-        order: -1;
-    }
+        grid-area: image;
+        order: 1;
+        margin: 0 auto 2rem;
+        max-width: 400px;
 
     .about-container {
         grid-template-columns: 1fr;
-        text-align: center;
         gap: 2rem;
-    }
-
-    .about-image {
-        order: -1;
-        max-width: 400px;
+        padding: 1.5rem;
     }
 
     .section-title::after {
@@ -310,6 +320,7 @@ body {
     }
 }
 
+/* Small mobile devices */
 @media (max-width: 480px) {
     .hero-title {
         font-size: 2rem;
@@ -320,15 +331,11 @@ body {
     }
 
     .section-title {
-        font-size: 2rem;
-    }
-    
-    .about-text {
-        font-size: 1rem;
+        font-size: 1.8rem;
     }
 }
 
-main {
-    position: relative;
-    z-index: 1;
+/* Utility class for disabling scroll */
+.no-scroll {
+    overflow: hidden;
 }
