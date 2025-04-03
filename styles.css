@@ -17,7 +17,7 @@ body {
     color: var(--text-light);
 }
 
-/* Updated Navigation Styles */
+/* Navigation Styles */
 .navbar {
     background-color: var(--dark-bg);
     height: var(--nav-height);
@@ -27,12 +27,13 @@ body {
     z-index: 1000;
 }
 
+/* Navigation Bar */
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
     display: flex;
-    justify-content: center; /* Changed to center */
+    justify-content: center; 
     align-items: center;
     height: 100%;
 }
@@ -41,7 +42,7 @@ body {
     display: flex;
     gap: 2.5rem;
     list-style: none;
-    transform: translateX(-5%); /* Push links left from center */
+    transform: translateX(-5%); 
     white-space: nowrap;
 }
 
@@ -1002,4 +1003,9 @@ textarea:invalid {
 input:valid,
 textarea:valid {
     border-color: var(--primary-color) !important;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
 }
