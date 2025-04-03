@@ -198,19 +198,25 @@ body {
     grid-template-columns: minmax(300px, 1fr) 2fr;
     gap: 4rem;
     align-items: center;
+    align-content: center;
+
 }
 
 .about-image {
-    max-width: 500px;
-    width: 100%;
-    margin: 0 auto;
+    height: 100%;
+    max-height: 700px; /* Adjust as needed */
+    display: flex;
+    align-items: center;
 }
 
 .about-image img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 3px solid var(--primary-color);
+    transition: transform 0.3s ease;
 }
 
 .about-text {
@@ -283,14 +289,15 @@ body {
     }
 
     .about-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 2rem;
-    }
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
 
     .about-image {
         order: -1;
-        max-width: 400px;
+        max-width: 100%;
+        margin: 0 auto;
     }
 
     .section-title::after {
@@ -314,6 +321,164 @@ body {
     
     .about-text {
         font-size: 1rem;
+    }
+}
+
+/* About Subsection Styles */
+.about-subsection {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.subsection-card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(245,245,245,0.9) 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.subsection-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0,255,136,0.15);
+}
+
+.subsection-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(0,255,136,0.1);
+}
+
+.icon-container {
+    width: 45px;
+    height: 45px;
+    background: rgba(0,255,136,0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+.icon-container i {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+}
+
+/* Education Card Specific Styles */
+.education-item {
+    position: relative;
+    padding-left: 60px;
+}
+
+.university-logo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 80px;
+    min-width: 60px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+    padding: 5px;
+}
+
+.university-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures full logo visibility */
+    padding: 3px;
+}
+.education-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.institution {
+    color: #666;
+    font-weight: 500;
+}
+
+.duration {
+    color: #999;
+    font-size: 0.9rem;
+    background: rgba(0,255,136,0.05);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+}
+
+/* Interests Grid Styles */
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    list-style: none;
+}
+
+.interest-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(0,255,136,0.05);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.interest-item:hover {
+    background: var(--primary-color);
+    transform: scale(1.02);
+}
+
+.interest-item i {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,255,136,0.1);
+    border-radius: 8px;
+    margin-right: 1rem;
+    color: var(--primary-color);
+}
+
+.interest-item:hover i {
+    background: rgba(255,255,255,0.2);
+    color: white;
+}
+
+/* Connect Button Styles */
+.scroll-link {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 2rem;
+    transition: all 0.3s ease;
+}
+
+.scroll-link i {
+    margin-right: 0.8rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-subsection {
+        grid-template-columns: 1fr;
+    }
+    
+    .interests-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .education-item {
+        padding-left: 0;
+    }
+    
+    .university-logo {
+        position: static;
+        margin-bottom: 1rem;
     }
 }
 
