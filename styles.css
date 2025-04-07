@@ -16,7 +16,6 @@ body {
     background-color: var(--dark-bg);
     color: var(--text-light);
 }
-
 /* ======================
    Navigation Styles
    ====================== */
@@ -34,17 +33,15 @@ body {
     margin: 0 auto;
     padding: 0 2rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     height: 100%;
-    position: relative;
 }
 
 .nav-links {
     display: flex;
     gap: 2.5rem;
     list-style: none;
-    transition: transform 0.3s ease;
 }
 
 .nav-links a {
@@ -52,19 +49,17 @@ body {
     text-decoration: none;
     transition: color 0.3s ease;
     padding: 0.5rem 1rem;
-    border-radius: 5px;
 }
 
 .nav-links a:hover {
     color: var(--primary-color);
-    background: rgba(0, 255, 136, 0.1);
 }
 
 /* Mobile Menu Styles */
 .hamburger {
     display: none;
     cursor: pointer;
-    z-index: 1002;
+    z-index: 1001;
 }
 
 .bar {
@@ -79,25 +74,9 @@ body {
     display: none;
 }
 
-.nav-overlay {
-    position: fixed;
-    top: var(--nav-height);
-    left: 0;
-    width: 100%;
-    height: calc(100vh - var(--nav-height));
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 999;
-}
-
 @media (max-width: 768px) {
     .hamburger {
         display: block;
-        position: relative;
-        z-index: 1001;
     }
 
     .nav-links {
@@ -111,6 +90,7 @@ body {
         padding: 2rem;
         transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1000;
+        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
     }
 
     .nav-links a {
@@ -121,12 +101,6 @@ body {
     /* Show menu when checkbox is checked */
     .nav-toggle:checked ~ .nav-links {
         left: 0;
-    }
-
-    /* Show overlay when menu is open */
-    .nav-toggle:checked ~ .nav-overlay {
-        opacity: 1;
-        pointer-events: all;
     }
 
     /* Hamburger animation */
@@ -259,6 +233,17 @@ body {
     box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
 }
 
+@media (max-width: 768px) {
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-image {
+        order: -1;
+    }
+}
 /* About Section */
 .about {
     background-color: #ffffff;
@@ -324,44 +309,8 @@ body {
     pointer-events: all;
 }
 
-/* Responsive Design */
+/* About Section Responsive Design */
 @media (max-width: 768px) {
-    .hamburger {
-        display: block;
-    }
-
-    .nav-container {
-        justify-content: space-between;
-    }
-
-    .nav-links {
-        position: fixed;
-        top: var(--nav-height);
-        left: -70%;
-        width: 80%;
-        height: calc(100vh - var(--nav-height));
-        background-color: var(--dark-bg);
-        flex-direction: column;
-        align-items: center;
-        padding: 2rem 0;
-        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
-        z-index: 1001;
-       
-    }
-
-    .nav-links.active {
-        left: 0;
-    }
-
-    .hero-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .hero-image {
-        order: -1;
-    }
 
     .about-container {
     display: flex;
